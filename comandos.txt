@@ -1,0 +1,8 @@
+# Instalação do pacote atualizado
+> npm i -g create-next-app
+
+# Criação do projeto
+> npx create-next-app
+
+# Execução do projeto next (comando realizado dentro da pasta react-primeiro-projeto)
+> npm run dev
