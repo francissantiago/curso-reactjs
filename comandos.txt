@@ -1,8 +1,19 @@
 # Instalação do pacote atualizado
 > npm i -g create-next-app
 
-# Criação do projeto
+# Criação do projeto NEXT
 > npx create-next-app
 
 # Execução do projeto next (comando realizado dentro da pasta react-primeiro-projeto)
+> npm run dev
+
+AULA 02
+# Criação do projeto Vite
+> npm create vite
+
+# Instalação dos módulos
+> cd .\react-com-vite\
+> npm install
+
+# Execução do projeto next (comando realizado dentro da pasta react-com-vite)
 > npm run dev
