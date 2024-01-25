@@ -1,3 +1,12 @@
+/* Importação de componente do tipo default
+import Square from '@/components/Geo';
+*/
+
+/*
+* Importação de componente sem ser default
+*/
+import { Square, Circle } from '@/components/Geo';
+
 /* Posso escrever assim
 function Page() {
   return (
@@ -15,6 +24,9 @@ const Page = () => {
     <div>
       <h1 className="font-bold text-2xl">Olá Mundo</h1>
       <h3>Algum outro texto</h3>
+
+      <Square />
+      <Circle />
     </div>
   );
 }
