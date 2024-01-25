@@ -3,9 +3,9 @@ import Square from '@/components/Geo';
 */
 
 /*
-* Importação de componente sem ser default
+* Importação de componentes padrões e não padrões
 */
-import { Square, Circle } from '@/components/Geo';
+import Square, {Circle } from '@/components/Geo';
 
 /* Posso escrever assim
 function Page() {

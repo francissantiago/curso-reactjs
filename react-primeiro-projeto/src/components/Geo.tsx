@@ -10,8 +10,8 @@ const Square = () => {
 export default Square;
 */
 
-/* Exportação de componente sem ser padrão*/
-export const Square = () => {
+/* Exportação de componente padrões e não padrões */
+const Square = () => {
     return (
         <div className="w-52 h-52 bg-orange-700 text-white">
             Texto qualquer inspirador
@@ -26,3 +26,5 @@ export const Circle = () => {
         </div>
     );
 }
+
+export default Square;
