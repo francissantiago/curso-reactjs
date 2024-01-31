@@ -1,4 +1,6 @@
 /* Importação de componentes */
+import { Card } from "@/components/Card";
+import { Circle } from "@/components/Circle";
 import { Person } from "@/components/Person";
 
 const Page = () => {
@@ -7,20 +9,13 @@ const Page = () => {
       <h1 className="font-bold text-2xl">Olá Mundo</h1>
       <h3>Algum outro texto</h3>
 
-      <Person
-        name = "Elon Musk"
-        avatar = "https://upload.wikimedia.org/wikipedia/commons/9/99/Elon_Musk_Colorado_2022_%28cropped2%29.jpg"
-        roles = {["CEO da Tesla","CEO da SpaceX"]}
-      />
-      <Person
-        name = "Jeff Bezos"
-        avatar = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Jeff_Bezos_visits_LAAFB_SMC_%283908618%29_%28cropped%29.jpeg/200px-Jeff_Bezos_visits_LAAFB_SMC_%283908618%29_%28cropped%29.jpeg"
-        roles = {["CEO da Amazon","CEO da Blue Origin"]}
-      />
-      <Person
-        name = "João"
-        roles = {["Algo", "Dono de Alo"]}
-      />
+      <Card>
+        <>
+          <h3 className="text-3xl font-bold italic">"Frase de efeito</h3>
+          <p className="text-right text-sm">- Autor desconhecido</p>
+          <Circle />
+        </>
+      </Card>
     </div>
   );
 }
