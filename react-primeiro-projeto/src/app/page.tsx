@@ -17,6 +17,10 @@ const Page = () => {
         avatar = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Jeff_Bezos_visits_LAAFB_SMC_%283908618%29_%28cropped%29.jpeg/200px-Jeff_Bezos_visits_LAAFB_SMC_%283908618%29_%28cropped%29.jpeg"
         roles = {["CEO da Amazon","CEO da Blue Origin"]}
       />
+      <Person
+        name = "João"
+        roles = {["Algo", "Dono de Alo"]}
+      />
     </div>
   );
 }
