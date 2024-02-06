@@ -12,7 +12,7 @@ const Page = () => {
 
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center">
-      <EmojiRating rate={3.2} />
+      <EmojiRating rate={0} />
     </div>
   );
 }
