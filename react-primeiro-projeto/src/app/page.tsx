@@ -1,18 +1,12 @@
 /* Importação de componentes */
-import { EmojiRating } from "@/components/EmojiRating";
+import { StudentsTable } from "@/components/StudentsTable";
+import { students } from "@/data/students";
 
 const Page = () => {
-
-  const fullTime = new Intl.DateTimeFormat('pt-BR', {
-    timeStyle: 'short',
-    hour12: false
-  }).format();
-
-  const hour = new Date().getHours();
-
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center">
-      <EmojiRating rate={0} />
+    <div className="container mx-auto">
+      <h1 className="text-5xl mb-5">Lista de estudantes</h1>
+      <StudentsTable students={students} />
     </div>
   );
 }
