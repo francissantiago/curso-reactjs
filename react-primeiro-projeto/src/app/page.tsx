@@ -1,27 +1,18 @@
 "use client"
 
+import { CustomButton } from "@/components/CustomButton";
+
 const Page = () => {
 
-  // Não fazer assim!
-  const handleClick = () => {
-    alert("Tudo certo!");
-  }
-
-  const avisar = (msg: string) => {
-    alert(msg);
-  }
+  const handleButton1 = () => alert('clicou no botão 1');
+  const handleButton2 = () => alert('clicou no botão 2');
+  const handleButton3 = () => alert('clicou no botão 3');
 
   return (
     <div className="w-screen h-screen flex justify-center items-center">
-     {/*
-      Não fazer assim!
-      <button onClick={handleClick()} className="p-3 bg-blue-700 text-white rounded-md mr-3">Clique aqui</button>
-    */}
-
-      <button onClick={() => avisar('mensagem 1')} className="p-3 bg-blue-700 text-white rounded-md mr-3">Clique aqui</button>
-      <button onClick={() => avisar('mensagem 2')} className="p-3 bg-blue-700 text-white rounded-md mr-3">Clique aqui</button>
-
-
+      <CustomButton label="Clique Aqui" onClick={handleButton1} />
+      <CustomButton label="Clique Aqui 2" onClick={handleButton2} />
+      <CustomButton label="Clique Aqui 3" onClick={handleButton3} />
     </div>
   );
 }
