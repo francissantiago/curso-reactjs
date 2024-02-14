@@ -1,12 +1,12 @@
 "use client"
 
-import { FormEvent } from "react";
+import { useState } from "react";
 
 const Page = () => {
-  let count = 0;
+  const [count, setCount] = useState(0);
+  
   const handleClickButton = () => {
-    count = count + 1;
-    console.log(count);
+    setCount(count + 1);    
   }
 
   return (
