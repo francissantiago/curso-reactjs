@@ -5,15 +5,10 @@ import { useState } from "react";
 const Page = () => {
   const [count, setCount] = useState(0);
 
-  /* O state só é alterado(renderizado) no cliente quando a função estiver terminado por completo */
   const handleBtnClick = () => {
-    console.log('count 0: ', count);
     setCount(count + 2);
-    console.log('count 1: ', count);
-    setCount(count + 2);
-    console.log('count 2: ', count);
-    setCount(count + 2);
-    console.log('count 3: ', count);
+    setCount(c => c + 2); // Resgata o valor já salvo na memória e exibe o valor atualizado
+    setCount(c => c + 2); // Resgata o valor já salvo na memória e exibe o valor atualizado
   }
 
   return (
