@@ -1,45 +1,32 @@
 "use client"
 
-import { Person } from "@/types/Person";
+import { TodoItem } from "@/types/TodoItem";
 import { useState } from "react";
 
 const Page = () => {
-  const [fullName, setFullName] = useState<Person>({name: 'Francis', lastName: 'Santana'});
+  const [list, setList] = useState<TodoItem[]>([
+    { label: 'Fazer dever de casa', checked: false},
+    { label: 'Comprar o bolo', checked: false},
+  ]);
 
-  const handleClearNameButton = () => {
-    setFullName({...fullName, name: ''});
-  }
-
-  const handleClearLastNameButton = () => {
-    setFullName({...fullName, lastName: ''});
-  }
-
-  const handleClearButton = () => {
-      setFullName({name: '', lastName: ''});
-    }
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center text-3xl">
-      <input
-        type="text"
-        placeholder="Nome"
-        className="border border-black p-3 text-2xl text-black rounded-md mb-3"
-        value={fullName.name}
-        onChange={e => setFullName({ ...fullName, name: e.target.value })}
-      />
-      <input
-        type="text"
-        placeholder="Sobrenome"
-        className="border border-black p-3 text-2xl text-black rounded-md mb-3"
-        value={fullName.lastName}
-        onChange={e => setFullName({ ...fullName, lastName: e.target.value })}
-      />
+    <div className="w-screen h-screen flex flex-col items-center">
+      <h1 className="text-4xl mt-5">Lista de Tarefas</h1>
 
-      <p>Meu nome completo é:</p>
-      <p>{fullName.name} {fullName.lastName}</p>
+      <div className="flex w-full max-w-lg my-3 p-4 rounded-md bg-gray-700 border-2 border-gray-600">
+        <input
+          type="text"
+          placeholder="O que deseja fazer?"
+          className="flex-1 border border-black p-3 text-2xl text-black rounded-md mr-3"
+        />
+        <button>Adicionar</button>
+      </div>
 
-      <button className="mb-2 rounded-md bg-blue-700 p-3" onClick={handleClearNameButton}>Limpar Nome</button>
-      <button className="mb-2 rounded-md bg-blue-700 p-3" onClick={handleClearLastNameButton}>Limpar Sobrenome</button>
-      <button className="mb-2 rounded-md bg-blue-700 p-3" onClick={handleClearButton}>Limpar Tudo</button>
+      <ul className="w-full max-w-lg list-disc pl-5">
+        {list.map(item => (
+          <li>{item.label} - <button className="hover:underline">[ deletar ]</button></li>
+        ))}
+      </ul>
     </div>
   );
 }
