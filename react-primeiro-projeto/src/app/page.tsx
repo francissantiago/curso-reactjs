@@ -1,65 +1,51 @@
 "use client"
 
-import { TodoItem } from "@/types/TodoItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Page = () => {
-  const [itemInput, setItemInput] = useState('');
-  const [list, setList] = useState<TodoItem[]>([
-    { id: 1, label: 'Fazer dever de casa', checked: false},
-    { id: 2, label: 'Comprar o bolo', checked: false},
-  ]);
+  const [name, setName] = useState('Santiago');
+  const [age, setAge] = useState(90);
 
-  const handleAddButton = () => {
-    if(itemInput.trim() === '') return;
+  /**
+  * 1. Definição da função que vai rodar.
+  * 2. Definição de QUANDO vai rodar.
+  * 3. Definição do que fazer quando o componente sumir/unload.
+  **/
 
-    setList([...list, {id: list.length + 1, label: itemInput, checked: false}]);
-    setItemInput('');
-  }
+  /**
+   * Definição 01 - O Effect roda SEMPRE que um componente é renderizado:
+      useEffect(() => {
+        console.log('RODOU O EFFECT');
+      });
+   **/
 
-  const deleteItem = (id: number) => {
-    setList(
-      list.filter(item => item.id !== id)
-    );
-  }
+    /**
+    * Definição 02 - O Effect roda APENAS quando um componente específico é renderizado:
+        useEffect(() => {
+          console.log('RODOU O EFFECT');
+        }, []); // Executar apenas quando a página é carregada
 
-  const toggleItem = (id: number) => {
-    let newList = [...list];
+        useEffect(() => {
+          console.log('RODOU O EFFECT');
+        }, [name]);
 
-    for(let i in newList) {
-      if(newList[i].id === id){
-        newList[i].checked = !newList[i].checked;
-      }
-    }
+        useEffect(() => {
+          console.log('RODOU O EFFECT');
+        }, [age]);
+    **/
 
-    setList(newList);
-  }
+  useEffect(() => {
+    console.log('RODOU O EFFECT');
+  }, [age]);
 
   return (
-    <div className="w-screen h-screen flex flex-col items-center">
-      <h1 className="text-4xl mt-5">Lista de Tarefas</h1>
-
-      <div className="flex w-full max-w-lg my-3 p-4 rounded-md bg-gray-700 border-2 border-gray-600">
-        <input
-          type="text"
-          placeholder="O que deseja fazer?"
-          className="flex-1 border border-black p-3 text-2xl text-black rounded-md mr-3"
-          value={itemInput}
-          onChange={e => setItemInput(e.target.value)}
-        />
-        <button onClick={handleAddButton}>Adicionar</button>
-      </div>
-
-      <p className="my-4">{list.length} itens na lista</p>
-
-      <ul className="w-full max-w-lg list-disc pl-5">
-        {list.map(item => (
-          <li key={item.id}>
-            <input onClick={() => toggleItem(item.id)} type="checkbox" checked={item.checked} className="w-6 h-6 mr-3" />
-            {item.label} - <button onClick={() => deleteItem(item.id)} className="hover:underline">[ deletar ]</button>
-          </li>
-        ))}
-      </ul>
+    <div className="">
+      <p>Meu nome é {name} e eu tenho {age} anos</p>
+      <hr />
+      <button className="border border-blue-400 m-3 p-3" onClick={() => setName('Francis')}>Mudar para Francis</button>
+      <button className="border border-blue-400 m-3 p-3" onClick={() => setName('Santana')}>Mudar para Santana</button>
+      <button className="border border-blue-400 m-3 p-3" onClick={() => setAge(10)}>Mudar para 10 anos</button>
+      <button className="border border-blue-400 m-3 p-3" onClick={() => setAge(90)}>Mudar para 90 anos</button>
     </div>
   );
 }
