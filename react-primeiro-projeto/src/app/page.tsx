@@ -1,10 +1,10 @@
 "use client"
 
+import { VideoPlayer } from "@/components/VideoPlayer";
 import { useEffect, useState } from "react";
 
 const Page = () => {
-  const [name, setName] = useState('Santiago');
-  const [age, setAge] = useState(90);
+  const [playing, setPlaying] = useState(false);
 
   /**
   * 1. Definição da função que vai rodar.
@@ -34,18 +34,21 @@ const Page = () => {
         }, [age]);
     **/
 
-  useEffect(() => {
-    console.log('RODOU O EFFECT');
-  }, [age]);
-
   return (
     <div className="">
-      <p>Meu nome é {name} e eu tenho {age} anos</p>
-      <hr />
-      <button className="border border-blue-400 m-3 p-3" onClick={() => setName('Francis')}>Mudar para Francis</button>
-      <button className="border border-blue-400 m-3 p-3" onClick={() => setName('Santana')}>Mudar para Santana</button>
-      <button className="border border-blue-400 m-3 p-3" onClick={() => setAge(10)}>Mudar para 10 anos</button>
-      <button className="border border-blue-400 m-3 p-3" onClick={() => setAge(90)}>Mudar para 90 anos</button>
+      <div className="border border-white p-3 mb-4">
+        <p className="text-2xl text-blue-400 mb-3">
+          {playing ? 'RODANDO' : 'PAUSADO'}
+        </p>
+        <button className="bg-blue-400 rounded-md p-3 text-black" onClick={() => setPlaying(!playing)}>
+          Play/Pause
+        </button>
+      </div>
+
+      <VideoPlayer
+        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+        isPlaying={playing}
+      />
     </div>
   );
 }
